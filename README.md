@@ -1,6 +1,6 @@
 ---
 
-## 🚀 Google Takeout Processor
+## 🚀 Google Photos Fixer
 
 Python scripts to restore EXIF data of media files using .JSON files provided by Google Photos Takeout.
 
