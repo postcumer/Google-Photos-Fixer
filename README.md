@@ -13,15 +13,15 @@ Python scripts to restore EXIF data of media files using .JSON files provided by
 - **For Debian-based systems:**
   ```bash
   sudo apt update
-  sudo apt install python3 python3-pip exiftool
-  pip3 install Pillow
+  sudo apt install python3-full python3-pip exiftool
+  pip3 install Pillow pyexiftool
   ```
 
 - **For Arch-based systems:**
   ```bash
   sudo pacman -Syu
-  sudo pacman -S python python-pip exiftool
-  pip install Pillow
+  sudo pacman -S python-full python-pip exiftool
+  pip install Pillow pyexiftool
   ```
 
 ### 📥 Downloading Google Photos Takeout
@@ -71,7 +71,7 @@ If the script doesn't work due to security issues, try running it in a Python vi
 
 3. **Install the required packages:**
    ```bash
-   pip install Pillow
+   pip install pyexiftool Pillow
    ```
 
 4. **Run the scripts within the virtual environment.**
