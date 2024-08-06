@@ -2,6 +2,11 @@ import os
 from PIL import Image
 from datetime import datetime
 import sys
+import logging
+
+# Setup logging
+log_file = os.path.expanduser('~/takeout-put/check.log')
+logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Function to print a text-based progress bar
 def print_progress_bar(iteration, total, prefix='', length=40, fill='█', print_end="\r"):
@@ -73,15 +78,19 @@ if tqdm_installed:
                     if date_to_check:
                         if is_today(date_to_check):
                             count_today_exif_data += 1
+                            logging.info(f'Today\'s date EXIF file: {file_path}')
                         elif is_not_today(date_to_check):
                             count_other_dates_exif_data += 1
                     else:
                         count_no_exif_data += 1
+                        logging.info(f'No EXIF data: {file_path}')
                 else:
                     count_no_exif_data += 1
+                    logging.info(f'No EXIF data: {file_path}')
             except Exception as e:
                 print(f"Error processing {file_path}: {e}", file=sys.stderr)
                 count_no_exif_data += 1
+                logging.error(f'Error processing {file_path}: {e}')
             
             # Update the progress bar
             pbar.update(1)
@@ -106,15 +115,19 @@ else:
                 if date_to_check:
                     if is_today(date_to_check):
                         count_today_exif_data += 1
+                        logging.info(f'Today\'s date EXIF file: {file_path}')
                     elif is_not_today(date_to_check):
                         count_other_dates_exif_data += 1
                 else:
                     count_no_exif_data += 1
+                    logging.info(f'No EXIF data: {file_path}')
             else:
                 count_no_exif_data += 1
+                logging.info(f'No EXIF data: {file_path}')
         except Exception as e:
             print(f"Error processing {file_path}: {e}", file=sys.stderr)
             count_no_exif_data += 1
+            logging.error(f'Error processing {file_path}: {e}')
 
         # Simple text-based progress indicator
         current_file += 1
