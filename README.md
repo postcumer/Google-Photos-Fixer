@@ -45,14 +45,16 @@ Python scripts to restore EXIF data of media files using .JSON files provided by
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/postcumer/Google-Takeout-Proccesor
-   cd Google-Takeout-Proccesor
+   git clone https://github.com/postcumer/Google-Photos-Fixer
+   cd Google-Photos-Fixer
    ```
 
 2. **Run the scripts:**
    ```bash
    python3 process_images.py
-   python3 check_no_of_processed_images.py
+   python3 extract_dates.py
+   python3 sorting.py (optional)
+   python3 check_no_of_processed_images.py (optional)
    ```
 
 ### 🛠️ Troubleshooting
